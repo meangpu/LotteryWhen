@@ -14,44 +14,14 @@
     />
     <title>LotteryWhen</title>
     <meta property="og:title" content="LotteryWhen" />
-    <meta
-      property="og:description"
-      content="A small simulation to see when you will win the lottery"
-    />
-    <meta
-      property="og:image"
-      content="https://meangpu.github.io/assets/logo.05c59aac.webp"
-    />
+    <meta property="og:description" content="A small simulation to see when you will win the lottery" />
+    <meta property="og:image" content="https://meangpu.github.io/assets/logo.05c59aac.webp" />
     <link rel="stylesheet" href="TemplateData/style.css" />
     <link rel="icon" href="TemplateData/favicon.png" />
     <link rel="apple-touch-icon" href="TemplateData/ios_icon.png" />
-    <style>
-      body,
-      html {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-      #unity-container,
-      #unity-canvas {
-        width: 100% !important;
-        height: 100% !important;
-        position: fixed;
-        top: 0;
-        left: 0;
-      }
-      @media screen and (orientation: landscape) {
-        #unity-canvas {
-          width: 100vw !important;
-          height: 100vh !important;
-        }
-      }
-    </style>
   </head>
   <body>
-    <div id="unity-container" class="unity-desktop">
+    <div id="unity-container">
       <canvas id="unity-canvas"></canvas>
     </div>
     <div id="loading-cover">
@@ -64,64 +34,59 @@
       </div>
     </div>
     <script>
-      const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/LotteryWhen.loader.js";
-      const config = {
-        dataUrl: buildUrl + "/LotteryWhen.data.unityweb",
-        frameworkUrl: buildUrl + "/LotteryWhen.framework.js.unityweb",
-        codeUrl: buildUrl + "/LotteryWhen.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "meangpu",
-        productName: "LotteryWhen",
-        productVersion: "0.04-19-Sep-2024 12:02 AM",
-      };
+            const buildUrl = "Build";
+            const loaderUrl = buildUrl + "/LotteryWhen.loader.js";
+            const config = {
+              dataUrl: buildUrl + "/LotteryWhen.data.unityweb",
+              frameworkUrl: buildUrl + "/LotteryWhen.framework.js.unityweb",
+              codeUrl: buildUrl + "/LotteryWhen.wasm.unityweb",
+              streamingAssetsUrl: "StreamingAssets",
+              companyName: "meangpu",
+              productName: "LotteryWhen",
+              productVersion: "0.05-19-Sep-2024 12:56 AM",
+            };
 
-      const container = document.querySelector("#unity-container");
-      const canvas = document.querySelector("#unity-canvas");
-      const loadingCover = document.querySelector("#loading-cover");
-      const progressBarEmpty = document.querySelector(
-        "#unity-progress-bar-empty"
-      );
-      const progressBarFull = document.querySelector(
-        "#unity-progress-bar-full"
-      );
-      const spinner = document.querySelector(".spinner");
+            const container = document.querySelector("#unity-container");
+            const canvas = document.querySelector("#unity-canvas");
+            const loadingCover = document.querySelector("#loading-cover");
+            const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+            const progressBarFull = document.querySelector("#unity-progress-bar-full");
+            const spinner = document.querySelector('.spinner');
 
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-      if (isMobile) {
-        container.className = "unity-mobile";
-        config.devicePixelRatio = 1;
-      }
+            if (isMobile) {
+              container.className = "unity-mobile";
+              config.devicePixelRatio = 1;
+            }
 
-      loadingCover.style.display = "";
 
-      const script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          spinner.style.display = "none";
-          progressBarEmpty.style.display = "";
-          progressBarFull.style.width = `${100 * progress}%`;
-        })
-          .then((unityInstance) => {
-            loadingCover.style.display = "none";
-          })
-          .catch((message) => {
-            alert(message);
-          });
-      };
+            loadingCover.style.display = "";
 
-      document.body.appendChild(script);
+            const script = document.createElement("script");
+            script.src = loaderUrl;
+            script.onload = () => {
+              createUnityInstance(canvas, config, (progress) => {
+                spinner.style.display = "none";
+                progressBarEmpty.style.display = "";
+                progressBarFull.style.width = `${100 * progress}%`;
+              }).then((unityInstance) => {
+                loadingCover.style.display = "none";
+              }).catch((message) => {
+                alert(message);
+              });
+            };
 
-      function handleResize() {
-        const canvas = document.querySelector("#unity-canvas");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
+            document.body.appendChild(script);
 
-      window.addEventListener("resize", handleResize);
-      window.addEventListener("orientationchange", handleResize);
+            function handleResize() {
+              const canvas = document.querySelector("#unity-canvas");
+              canvas.width = window.innerWidth;
+              canvas.height = window.innerHeight;
+            }
+
+            window.addEventListener('resize', handleResize);
+            window.addEventListener('orientationchange', handleResize);
     </script>
   </body>
 </html>
