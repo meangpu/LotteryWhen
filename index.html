@@ -13,6 +13,7 @@
       content="black-translucent"
     />
     <title>LotteryWhen</title>
+    <meta name="description" content="A small simulation to see when you will win the lottery" />
     <meta property="og:title" content="LotteryWhen" />
     <meta property="og:description" content="A small simulation to see when you will win the lottery" />
     <meta property="og:image" content="https://meangpu.github.io/PortData/Img/MiniProject/lottery.webp" />
@@ -43,7 +44,7 @@
               streamingAssetsUrl: "StreamingAssets",
               companyName: "meangpu",
               productName: "LotteryWhen",
-              productVersion: "0.45-30-Sep-2024 9:19 PM",
+              productVersion: "0.46-1-Oct-2024 4:30 PM",
             };
 
             const container = document.querySelector("#unity-container");
@@ -87,6 +88,7 @@
 
             window.addEventListener('resize', handleResize);
             window.addEventListener('orientationchange', handleResize);
+            handleResize();
     </script>
   </body>
 </html>

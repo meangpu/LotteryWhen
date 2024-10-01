@@ -9,6 +9,16 @@ body {
   /* this is a border ios phone background (the top section that display time/battery will use this color */
   background-color: #020202;
   color: white;
+
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
 }
 
 canvas {
@@ -66,17 +76,19 @@ canvas {
 }
 
 #unity-progress-bar-empty {
-  width: 80%;
+  width: 75vw;
   height: 24px;
   margin: 10px 20px 20px 10px;
   text-align: left;
   border: 1px solid white;
+  border-radius: 1rem;
   padding: 2px;
 }
 
 #unity-progress-bar-full {
   width: 0%;
   height: 100%;
+  border-radius: 1rem;
   background: white;
 }
 
