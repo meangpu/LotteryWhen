@@ -10,15 +10,9 @@ body {
   background-color: #020202;
   color: white;
 
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  pointer-events: none;
+  user-select: none;
 }
 
 canvas {
@@ -73,6 +67,16 @@ canvas {
 
 #unity-logo img {
   max-width: 80%;
+
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
 }
 
 #unity-progress-bar-empty {
