@@ -27,7 +27,9 @@
     </div>
     <div id="loading-cover">
       <div id="unity-loading-bar">
-        <div id="unity-logo"><img src="logo.png" alt="Logo" /></div>
+        <div id="unity-logo">
+          <img src="TemplateData/logo.png" alt="Logo" />
+        </div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
@@ -44,7 +46,7 @@
               streamingAssetsUrl: "StreamingAssets",
               companyName: "meangpu",
               productName: "LotteryWhen",
-              productVersion: "0.55-8-Oct-2024 7:25 AM",
+              productVersion: "0.56-8-Oct-2024 7:42 AM",
             };
 
             const container = document.querySelector("#unity-container");
@@ -57,9 +59,11 @@
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
             if (isMobile) {
-              container.className = "unity-mobile";
+              // this make game blur
+              // but prevent iphone safari home screen to broken when change orientation
               config.devicePixelRatio = 1;
             }
+
 
 
             loadingCover.style.display = "";
