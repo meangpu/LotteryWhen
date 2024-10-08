@@ -5,7 +5,6 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  overflow: hidden;
   /* this is a border ios phone background (the top section that display time/battery will use this color */
   background-color: #020202;
   color: white;
@@ -14,6 +13,7 @@ body {
 canvas {
   display: block;
 }
+
 #unity-container,
 #unity-canvas {
   width: 100% !important;
@@ -26,16 +26,8 @@ canvas {
 }
 
 #unity-canvas {
-  /* position: absolute; */
   /* this is unity game background when loading game */
   background: #161616;
-}
-
-@media screen and (orientation: landscape) {
-  #unity-canvas {
-    width: 100vw !important;
-    height: 100vh !important;
-  }
 }
 
 #loading-cover {
